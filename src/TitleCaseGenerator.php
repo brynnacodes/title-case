@@ -5,14 +5,14 @@
 
         function makeTitleCase($input_title)
         {
-            $input_array_of_words = explode(" ", $input_title);
+            $input_array_of_words = explode(" ", strtolower($input_title));
             $output_titlecased = array();
             foreach ($input_array_of_words as $word) {
                 if (!in_array($word, $this->designated_words_array)) {
                     array_push($output_titlecased, ucfirst($word));
                 }
-                elseif ($word == [0]){
-                    array_push($output_titlecased, ucfirst($word, [0]));    
+                elseif ($word == $input_array_of_words[0]){
+                    array_push($output_titlecased, ucfirst($word));
                 }
                 else {
                     array_push($output_titlecased, $word);

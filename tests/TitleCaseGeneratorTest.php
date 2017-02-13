@@ -17,9 +17,9 @@
         function test_titleCase_multipleWords()
         {
             $test_TitleCaseGenerator = new TitleCaseGenerator;
-            $input = "the little mermaid";
+            $input = "beowulf begins";
             $result = $test_TitleCaseGenerator->makeTitleCase($input);
-            $this->assertEquals("the Little Mermaid", $result);
+            $this->assertEquals("Beowulf Begins", $result);
         }
 
         function test_titleCase_designatedWords()
@@ -28,6 +28,30 @@
             $input = "beowulf from brighton beach";
             $result = $test_TitleCaseGenerator->makeTitleCase($input);
             $this->assertEquals("Beowulf from Brighton Beach", $result);
+        }
+
+        function test_titleCase_firstWord()
+        {
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "from beowulf to the hulk";
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+            $this->assertEquals("From Beowulf to the Hulk", $result);
+        }
+
+        function test_titleCase_unexpectedInput()
+        {
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "57 beowulf alternative endings!!";
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+            $this->assertEquals("57 Beowulf Alternative Endings!!", $result);
+        }
+
+        function test_titleCase_toLower()
+        {
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "BEOWULF ON THE ROCKS";
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+            $this->assertEquals("Beowulf on the Rocks", $result);
         }
     }
 
