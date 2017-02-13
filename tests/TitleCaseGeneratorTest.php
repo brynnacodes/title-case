@@ -49,7 +49,7 @@
         function test_titleCase_toLower()
         {
             $test_TitleCaseGenerator = new TitleCaseGenerator;
-            $input = "BEOWULF ON THE ROCKS";
+            $input = "BeOwULF ON ThE RocKS";
             $result = $test_TitleCaseGenerator->makeTitleCase($input);
             $this->assertEquals("Beowulf on the Rocks", $result);
         }
